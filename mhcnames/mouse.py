@@ -44,9 +44,9 @@ def parse_mouse_allele_name(name):
         name = name[1:]
     _, name = parse_separator(name)
 
-    if len(name) != 1:
+    if len(name) > 2:
         raise AlleleParseError(
             "Malformed mouse MHC allele: %s, parse error at %s" % (
                 original, name))
-    allele = name[0]
+    allele = name[0:]
     return gene_name.upper(), allele.lower()
